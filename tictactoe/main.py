@@ -1,47 +1,48 @@
 def end_game():
-  vert1 = [row1[0], row2[0], row3[0]]
-  vert2 = [row1[1], row2[1], row3[1]]
-  vert3 = [row1[2], row2[2], row3[2]]
+    vert1 = [row1[0], row2[0], row3[0]]
+    vert2 = [row1[1], row2[1], row3[1]]
+    vert3 = [row1[2], row2[2], row3[2]]
 
-  diag1 = [row1[0], row2[1], row3[2]]
-  diag2 = [row1[2], row2[1], row3[0]]
+    diag1 = [row1[0], row2[1], row3[2]]
+    diag2 = [row1[2], row2[1], row3[0]]
 
-  if all(x == 'X' for x in row3) or all(x == 'X' for x in row2) or all(x == 'X' for x in row1) or all(
-          x == 'X' for x in vert1) or all(x == 'X' for x in vert2) or all(x == 'X' for x in vert3) or all(
-    x == 'X' for x in diag1) or all(x == 'X' for x in diag2):
-    print('Game Over, X wins')
-    reset_play()
-    return True
+    if all(x == 'X' for x in row3) or all(x == 'X' for x in row2) or all(x == 'X' for x in row1) or all(
+            x == 'X' for x in vert1) or all(x == 'X' for x in vert2) or all(x == 'X' for x in vert3) or all(
+        x == 'X' for x in diag1) or all(x == 'X' for x in diag2):
+        print('Game Over, X wins')
+        reset_play()
+        return True
 
-  elif all(x == 'O' for x in row3) or all(x == 'O' for x in row2) or all(x == 'O' for x in row1) or all(
-          x == 'O' for x in vert1) or all(x == 'O' for x in vert2) or all(x == 'O' for x in vert3) or all(
-    x == 'O' for x in diag1) or all(x == 'O' for x in diag2):
-    print('Game Over, X wins')
-    reset_play()
-    return True
+    elif all(x == 'O' for x in row3) or all(x == 'O' for x in row2) or all(x == 'O' for x in row1) or all(
+            x == 'O' for x in vert1) or all(x == 'O' for x in vert2) or all(x == 'O' for x in vert3) or all(
+        x == 'O' for x in diag1) or all(x == 'O' for x in diag2):
+        print('Game Over, X wins')
+        reset_play()
+        return True
 
-  elif all(x == 'O' or x == 'X' for x in row3) and all(x == 'O' or x == 'X' for x in row2) and all(
-          x == 'O' or x == 'X' for x in row1):
-    print('Game Over, It is a tie')
-    reset_play()
-    return True
-  else:
-    pass
+    elif all(x == 'O' or x == 'X' for x in row3) and all(x == 'O' or x == 'X' for x in row2) and all(
+            x == 'O' or x == 'X' for x in row1):
+        print('Game Over, It is a tie')
+        reset_play()
+        return True
+    else:
+        pass
 
 
 def reset_play():
-  keep1 = input('Do you want to keep playing? [Y/N] ').upper()
+    keep1 = input('Do you want to keep playing? [Y/N] ').upper()
 
-  while keep1 not in ('Y', 'N'):
-    print('I am sorry that is not a possible choice')
-    team1 = input('Do you want to keep playing? [Y/N] ').upper()
+    while keep1 not in ('Y', 'N'):
+        print('I am sorry that is not a possible choice')
+        team1 = input('Do you want to keep playing? [Y/N] ').upper()
 
-  if keep1 == 'Y':
-    row = []
-    return inicio()
+    if keep1 == 'Y':
+        row = []
+        return inicio()
 
-  else:
-    return
+    else:
+        return
+
 
 def play():
     if end_game():
@@ -49,7 +50,7 @@ def play():
 
     print('Tic Tac Toe')
 
-    display(row1, row2, row3)
+    print(row1, "\n\r", row2, "\n\r", row3)
 
     input1 = input('Player please select a position on the board: ')
 
@@ -71,7 +72,7 @@ def play():
             if int(input1) in range(1, 4):
                 acceptable_range = True
                 row1[int(input1) - 1] = 'X'
-                display(row1, row2, row3)
+                print(row1, "\n\r", row2, "\n\r", row3)
                 if end_game():
                     return
                 else:
@@ -90,7 +91,7 @@ def play():
                             if int(input2) in range(1, 4):
                                 acceptable_range = True
                                 row1[int(input2) - 1] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -98,7 +99,7 @@ def play():
                             elif int(input2) in range(4, 7):
                                 acceptable_range = True
                                 row2[int(input2) - 4] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -106,7 +107,7 @@ def play():
                             elif int(input2) in range(7, 10):
                                 acceptable_range = True
                                 row3[int(input2) - 7] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -115,7 +116,7 @@ def play():
             elif int(input1) in range(4, 7):
                 acceptable_range = True
                 row2[int(input1) - 4] = 'X'
-                display(row1, row2, row3)
+                print(row1, "\n\r", row2, "\n\r", row3)
                 if end_game():
                     return
                 else:
@@ -134,7 +135,7 @@ def play():
                             if int(input2) in range(4, 7):
                                 acceptable_range = True
                                 row2[int(input2) - 4] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -142,7 +143,7 @@ def play():
                             elif int(input2) in range(7, 10):
                                 acceptable_range = True
                                 row3[int(input2) - 7] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -150,7 +151,7 @@ def play():
                             elif int(input2) in range(1, 4):
                                 acceptable_range = True
                                 row1[int(input2) - 1] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -159,7 +160,7 @@ def play():
             elif int(input1) in range(7, 10):
                 acceptable_range = True
                 row3[int(input1) - 7] = 'X'
-                display(row1, row2, row3)
+                print(row1, "\n\r", row2, "\n\r", row3)
                 if end_game():
                     return
                 else:
@@ -178,7 +179,7 @@ def play():
                             if int(input2) in range(7, 10):
                                 acceptable_range = True
                                 row3[int(input2) - 7] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -186,7 +187,7 @@ def play():
                             elif int(input2) in range(1, 4):
                                 acceptable_range = True
                                 row1[int(input2) - 1] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -194,7 +195,7 @@ def play():
                             elif int(input2) in range(4, 7):
                                 acceptable_range = True
                                 row2[int(input2) - 4] = 'O'
-                                display(row1, row2, row3)
+                                print(row1, "\n\r", row2, "\n\r", row3)
                                 if end_game():
                                     return
                                 else:
@@ -203,25 +204,27 @@ def play():
                 print('Sorry that is not a possible choice, choose a position from 1-9')
                 input1 = input('Please select a position on the board: ')
 
+
 def inicio():
-  print('Welcome to Tic Tac Toe!')
+    print('Welcome to Tic Tac Toe!')
 
-  global row1
-  global row2
-  global row3
+    global row1
+    global row2
+    global row3
 
-  row1=['1','2','3']
-  row2=['4','5','6']
-  row3=['7','8','9']
+    row1 = ['1', '2', '3']
+    row2 = ['4', '5', '6']
+    row3 = ['7', '8', '9']
 
-  vert1=[row1[0],row2[0],row3[0]]
-  vert2=[row1[1],row2[1],row3[1]]
-  vert3=[row1[2],row2[2],row3[2]]
+    vert1 = [row1[0], row2[0], row3[0]]
+    vert2 = [row1[1], row2[1], row3[1]]
+    vert3 = [row1[2], row2[2], row3[2]]
 
-  diag1=[row1[0],row2[1],row3[2]]
-  diag2=[row1[2],row2[1],row3[0]]
+    diag1 = [row1[0], row2[1], row3[2]]
+    diag2 = [row1[2], row2[1], row3[0]]
 
-  return play()
+    return play()
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
